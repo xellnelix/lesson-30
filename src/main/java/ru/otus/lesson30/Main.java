@@ -7,16 +7,12 @@ public class Main {
     }
 
     public static int[] subArray(int[] array) {
-        int currentIndex = 0;
-        for (int i = 0; i < array.length; i++) {
+        for (int i = array.length - 1; i >= 0; i--) {
             if (array[i] == 1) {
-                currentIndex = i + 1;
+                return Arrays.copyOfRange(array, i + 1, array.length);
             }
         }
-        if (currentIndex == 0) {
-            throw new RuntimeException();
-        }
-        return Arrays.copyOfRange(array, currentIndex, array.length);
+        throw new RuntimeException();
     }
 
     public static boolean checkOneTwoArray(int[] array) {
